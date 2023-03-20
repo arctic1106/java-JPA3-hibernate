@@ -4,7 +4,7 @@
 	version="2.0">
 
 	<persistence-unit
-		name="com.arcticsoft.persistenceunit">
+		name="persistenceunit">
 		<description>JPA Persistence unit</description>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
@@ -12,7 +12,7 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<!-- validate | update | create | create-drop -->
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>

@@ -1,10 +1,11 @@
 package com.arcticsoft;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class Album {
@@ -53,28 +54,16 @@ public class Album {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Album other = (Album) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
-		if (releaseDate == null) {
-			if (other.releaseDate != null)
-				return false;
-		} else if (!releaseDate.equals(other.releaseDate))
-			return false;
-		return true;
+		if (this == obj) return true;
+		if (obj == null || getClass() != obj.getClass()) return false;
+		Album album = (Album) obj;
+		return Objects.equals(id, album.id) &&
+				Objects.equals(title, album.title) &&
+				Objects.equals(releaseDate, album.releaseDate);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, title, releaseDate);
 	}
 }

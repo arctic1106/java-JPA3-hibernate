@@ -49,17 +49,16 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return "Album [id=" + id + ", title=" + title + ", releaseDate=" + releaseDate + "]";
+		return String.format("Album [id=%d, title=%s, releaseDate=%s]", id, title, releaseDate);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
-		if (obj == null || getClass() != obj.getClass()) return false;
-		Album album = (Album) obj;
-		return Objects.equals(id, album.id) &&
-				Objects.equals(title, album.title) &&
-				Objects.equals(releaseDate, album.releaseDate);
+		if (!(obj instanceof Album album)) return false;
+		return Objects.equals(id, album.id) && 
+			Objects.equals(title, album.title) && 
+			Objects.equals(releaseDate, album.releaseDate);
 	}
 
 	@Override

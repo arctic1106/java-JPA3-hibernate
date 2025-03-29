@@ -5,20 +5,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.articsoft</groupId>
 	<artifactId>standalone-hibernate-jpa</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>Standalone JPA with Hibernate</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>23</maven.compiler.source>
-		<maven.compiler.target>23</maven.compiler.target>
+		<maven.compiler.release>24</maven.compiler.release>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.6.1.Final</version>
+			<version>7.0.0.Beta5</version>
 		</dependency>
 
 		<dependency>
@@ -37,7 +36,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.11.3</version>
+			<version>5.12.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

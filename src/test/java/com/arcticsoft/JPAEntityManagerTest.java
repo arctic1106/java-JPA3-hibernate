@@ -11,18 +11,23 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceConfiguration;
 
 public class JPAEntityManagerTest {
-	private static EntityManagerFactory emf;
 	private static EntityManager em;
 	private static List<Album> albumList = new ArrayList<>();
 
 	@BeforeAll
 	static void setUp() {
-		emf = Persistence.createEntityManagerFactory("persistenceunit");
-		em = emf.createEntityManager();
+		em = new PersistenceConfiguration("persistenceunit")
+				.managedClass(Album.class)
+				.property("jakarta.persistence.jdbc.driver", "org.h2.Driver")
+				.property("jakarta.persistence.jdbc.url", "jdbc:h2:~/h2db")
+				.property("jakarta.persistence.jdbc.user", "sa")
+				.property("jakarta.persistence.jdbc.password", "")
+				.createEntityManagerFactory()
+				.createEntityManager();
+
 		em.getTransaction().begin();
 
 		var album1 = new Album("KIDS SEE GHOSTS", LocalDate.of(1999, Month.AUGUST, 19));

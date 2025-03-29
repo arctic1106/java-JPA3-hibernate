@@ -15,8 +15,7 @@ public class Album {
 	private String title;
 	private LocalDate releaseDate;
 
-	public Album() {
-	}
+	public Album() {}
 
 	public Album(String title, LocalDate releaseDate) {
 		this.title = title;
@@ -56,9 +55,7 @@ public class Album {
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
 		if (!(obj instanceof Album album)) return false;
-		return Objects.equals(id, album.id) && 
-			Objects.equals(title, album.title) && 
-			Objects.equals(releaseDate, album.releaseDate);
+		return Objects.equals(id, album.id) && Objects.equals(title, album.title) && Objects.equals(releaseDate, album.releaseDate);
 	}
 
 	@Override
